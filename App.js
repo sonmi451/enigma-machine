@@ -10,9 +10,9 @@ export default class App extends React.Component {
   state = {
       isLoading: false,
       buttonVisible: false,
-      rotor1: 'I',
-      rotor2: 'II',
-      rotor3: 'III',
+      rotor1: '1',
+      rotor2: '2',
+      rotor3: '3',
       start1: 'A',
       start2: 'M',
       start3: 'C',
@@ -20,7 +20,6 @@ export default class App extends React.Component {
       plaintext: null,
       ciphertext: null,
       backgroundKey: 'Default',
-      backgroundColour: '#123'
   };
 
   getCiphertext() {
@@ -152,7 +151,13 @@ export default class App extends React.Component {
 
         <View style={styles.inputContainer}>
 
-          <Text style={styles.titletext}>Select your rotor start positions and then enter your message.</Text>
+          <Text style={[styles.titletext,
+              {
+                color: "#" + this.state.rotor1 + this.state.rotor2 + this.state.rotor3
+              }
+              ]}>
+          Select your rotor start positions and then enter your message.
+          </Text>
 
           <Rotors style={styles.rotorContainer} rotor1={RotorA} rotor2={RotorB} rotor3={RotorC}/>
 
@@ -172,7 +177,6 @@ export default class App extends React.Component {
         </View>
 
           { showButton ? encipherButton : null }
-
 
         <View style={styles.outputContainer}>
           <Text style={styles.ciphertext}>{this.state.ciphertext}</Text>
