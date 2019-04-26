@@ -23,7 +23,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+       "bundleIdentifier": "uk.co.aishamclean.enigmamachine"
+    },
+    "android": {
+      "package": "uk.co.aishamclean.enigmamachine"
     }
   }
 }
