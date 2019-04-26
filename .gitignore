@@ -1,0 +1,11 @@
+# React native modules
+node_modules/**/*
+.expo/*
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
+
+# mac files
+.DS_Store
