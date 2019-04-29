@@ -8,7 +8,8 @@ import { rotorNumbers } from './utils/Numbers';
 
 export default class App extends React.Component {
   state = {
-      isLoading: false,
+      loading: true,
+      loadingText: 'Booting Enigma Machine',
       buttonVisible: false,
       rotor1: '1',
       rotor2: '2',
@@ -21,6 +22,21 @@ export default class App extends React.Component {
       ciphertext: null,
       backgroundKey: 'Default',
   };
+
+  componentWillMount(){
+    const testApiCall = `http://aishamclean.co.uk/enigma/encipher/1/2/3/A/M/C/hello`
+    fetch(testApiCall)
+    .then(response => response.json())
+    .then(data => {
+          this.setState({
+              loading: false,
+          })
+      })
+    .catch( err => {
+      this.setState({
+          loadingText: 'Trouble booting enigma machine, check your internet connection',
+      })
+    });    }
 
   getCiphertext() {
       const api = `http://aishamclean.co.uk/enigma/encipher/${this.state.rotor1}/${this.state.rotor2}/${this.state.rotor3}/${this.state.start1}/${this.state.start2}/${this.state.start3}/${this.state.plaintext.replace(/[^A-Z]/g, '')}`
@@ -141,6 +157,10 @@ export default class App extends React.Component {
           color: 'black',
         };
 
+    const showLoadingText = this.state.loading
+
+    const loadingScreen = <Text style={styles.ciphertext}>{this.state.loadingText}</Text>
+
     return (
       <View style={[
         styles.screenContainer,
@@ -155,8 +175,8 @@ export default class App extends React.Component {
               {
                 color: "#" + this.state.rotor1 + this.state.rotor2 + this.state.rotor3
               }
-              ]}>
-          Select your rotor start positions and then enter your message.
+            ]}>
+            Select your rotor start positions and then enter your message.
           </Text>
 
           <Rotors style={styles.rotorContainer} rotor1={RotorA} rotor2={RotorB} rotor3={RotorC}/>
@@ -170,17 +190,19 @@ export default class App extends React.Component {
                 plaintext,
                 buttonVisible: true,
               })
-          }
+            }
             placeholder={this.state.message}
             maxLength = {50} />
 
         </View>
 
-          { showButton ? encipherButton : null }
+        { showButton ? encipherButton : null }
 
-        <View style={styles.outputContainer}>
-          <Text style={styles.ciphertext}>{this.state.ciphertext}</Text>
-        </View>
+          <View style={styles.outputContainer}>
+
+          { showLoadingText ? loadingScreen : <Text style={styles.ciphertext}>{this.state.ciphertext}</Text> }
+
+          </View>
 
       </View>
     );
