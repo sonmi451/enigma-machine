@@ -184,6 +184,8 @@ export default class App extends React.Component {
           <Rotors style={styles.rotorContainer} rotor1={Rotor1} rotor2={Rotor2} rotor3={Rotor3}/>
 
           <TextInput
+            style={styles.plaintext}
+            placeholderTextColor={'black'}
             autoCapitalize='characters'
             onChangeText={ plaintext =>
               this.setState({
@@ -200,7 +202,9 @@ export default class App extends React.Component {
 
           <View style={styles.outputContainer}>
 
-          { showLoadingText ? loadingScreen : <Text style={styles.ciphertext}>{this.state.ciphertext}</Text> }
+          { showLoadingText ? loadingScreen :
+            <Text selectable style={styles.ciphertext}>{this.state.ciphertext}</ Text>
+          }
 
           </View>
 
@@ -238,6 +242,11 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 25,
     textAlign: 'center',
+  },
+  plaintext: {
+    color: 'black',
+    fontSize: 20,
+    textAlign: 'center'
   },
   ciphertext: {
     color: 'black',
