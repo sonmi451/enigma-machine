@@ -36,22 +36,69 @@ export default class App extends React.Component {
       this.setState({
           loadingText: 'Trouble booting enigma machine, check your internet connection',
       })
-    });    }
+    });
+  }
 
   getCiphertext() {
       const api = `http://aishamclean.co.uk/enigma/encipher/${this.state.rotor1}/${this.state.rotor2}/${this.state.rotor3}/${this.state.start1}/${this.state.start2}/${this.state.start3}/${this.state.plaintext.replace(/[^A-Z]/g, '')}`
-      console.log(api)
       fetch(api)
       .then(response => response.json())
-      .then(data => {
-            this.setState({
-                ciphertext: data.ciphertext,
-                backgroundKey: data.ciphertext.substr(0, 1),
-            })
-        })
+      .then( data => this.handleEncipher(data) )
       .catch( err => {
         console.log(api + ' request returned you an error there')
       });
+  }
+
+  handleEncipher(data) {
+    console.log(data),
+    this.setState({
+        ciphertext: data.ciphertext,
+        backgroundKey: data.ciphertext.substr(0, 1),
+    })
+  }
+
+
+  handleRotor1(rotor1) {
+    this.setState({
+      rotor1: rotor1,
+    })
+  }
+
+  handleRotor2(rotor2) {
+    this.setState({
+      rotor2: rotor2,
+    })
+  }
+
+  handleRotor3(rotor3) {
+    this.setState({
+      rotor3: rotor3,
+    })
+  }
+
+  handleStart1(start1) {
+    this.setState({
+      start1: start1,
+    })
+  }
+
+  handleStart2(start2) {
+    this.setState({
+      start2: start2,
+    })
+  }
+
+  handleStart3(start3) {
+    this.setState({
+      start3: start3,
+    })
+  }
+
+  handlePlaintextInput(plaintext) {
+    this.setState({
+      plaintext: plaintext,
+      buttonVisible: true,
+    })
   }
 
   render() {
@@ -69,11 +116,7 @@ export default class App extends React.Component {
       <RNPickerSelect
           placeholder={placeholderRotor}
           items={rotorNumbers}
-          onValueChange={value => {
-            this.setState({
-              rotor1: value,
-            });
-          }}
+          onValueChange={ (value) => this.handleRotor1(value) }
           value={this.state.rotor1}
           useNativeAndroidPickerStyle={false}
         />
@@ -83,11 +126,7 @@ export default class App extends React.Component {
       <RNPickerSelect
           placeholder={placeholderRotor}
           items={rotorNumbers}
-          onValueChange={value => {
-            this.setState({
-              rotor2: value,
-            });
-          }}
+          onValueChange={ (value) => this.handleRotor2(value) }
           value={this.state.rotor2}
           useNativeAndroidPickerStyle={false}
         />
@@ -97,11 +136,7 @@ export default class App extends React.Component {
       <RNPickerSelect
           placeholder={placeholderRotor}
           items={rotorNumbers}
-          onValueChange={value => {
-            this.setState({
-              rotor3: value,
-            });
-          }}
+          onValueChange={ (value) => this.handleRotor3(value) }
           value={this.state.rotor3}
           useNativeAndroidPickerStyle={false}
         />
@@ -111,11 +146,7 @@ export default class App extends React.Component {
       <RNPickerSelect
           placeholder={placeholderRotor}
           items={alphabet}
-          onValueChange={value => {
-            this.setState({
-              start1: value,
-            });
-          }}
+          onValueChange={ (value) => this.handleStart1(value) }
           value={this.state.start1}
           useNativeAndroidPickerStyle={false}
         />
@@ -125,11 +156,7 @@ export default class App extends React.Component {
       <RNPickerSelect
           placeholder={placeholderRotor}
           items={alphabet}
-          onValueChange={value => {
-            this.setState({
-              start2: value,
-            });
-          }}
+          onValueChange={ (value) => this.handleStart2(value) }
           value={this.state.start2}
           useNativeAndroidPickerStyle={false}
         />
@@ -139,11 +166,7 @@ export default class App extends React.Component {
       <RNPickerSelect
           placeholder={placeholderRotor}
           items={alphabet}
-          onValueChange={value => {
-            this.setState({
-              start3: value,
-            });
-          }}
+          onValueChange={ (value) => this.handleStart3(value) }
           value={this.state.start3}
           useNativeAndroidPickerStyle={false}
         />
@@ -187,12 +210,7 @@ export default class App extends React.Component {
             style={styles.plaintext}
             placeholderTextColor={'black'}
             autoCapitalize='characters'
-            onChangeText={ plaintext =>
-              this.setState({
-                plaintext,
-                buttonVisible: true,
-              })
-            }
+            onChangeText={ (plaintext) => this.handlePlaintextInput(plaintext) }
             placeholder={this.state.message}
             maxLength = {50} />
 
@@ -228,13 +246,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   inputContainer: {
-    flex: 1,
+    flex: 3,
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
   outputContainer: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'column',
     justifyContent: 'center',
   },
