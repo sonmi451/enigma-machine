@@ -7,5 +7,8 @@ npm-debug.*
 *.key
 *.mobileprovision
 
-# mac files
+# code coverage report
+/coverage
+
+# OSX files
 .DS_Store
