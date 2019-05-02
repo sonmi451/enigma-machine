@@ -82,16 +82,24 @@ export const alphabet = [
 {
   label: 'U',
   value: 'U',
-},{
+},
+{
   label: 'V',
   value: 'V',
-},{
+},
+{
+  label: 'W',
+  value: 'W',
+},
+{
   label: 'X',
   value: 'X',
-},{
+},
+{
   label: 'Y',
   value: 'Y',
-},{
+},
+{
   label: 'Z',
   value: 'Z',
 }
