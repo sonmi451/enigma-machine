@@ -1,4 +1,4 @@
-## React-native app built using expo that consumes the api at http://aishamclean.co.uk/enigma/encipher to turn plaintext to cipehertext
+## React-native app built using expo that consumes the api at https://aishamclean.co.uk/enigma/encipher to turn plaintext to cipehertext
 
 1. Requires expo and xCode iOS simulator
 
