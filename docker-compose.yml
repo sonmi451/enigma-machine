@@ -19,4 +19,4 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: development
-    entrypoint: "npm run web"
+    entrypoint: "npm run start"

@@ -14,4 +14,4 @@ COPY package.json /usr/src/enigma-machine/package.json
 RUN npm install
 
 # start app
-ENTRYPOINT expo start
+ENTRYPOINT npm run start
