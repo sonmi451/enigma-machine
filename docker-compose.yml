@@ -1,0 +1,19 @@
+version: "3.4"
+
+services:
+
+  enigma-machine:
+    container_name: enigma-machine
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/usr/src/enigma-machine"
+      - "/usr/src/enigma-machine/node_modules"
+    ports:
+      - "19006:19006"
+      - "19001:19001"
+      - "19002:19002"
+    environment:
+      NODE_ENV: development
+    entrypoint: "expo start -i"
