@@ -18,4 +18,4 @@ services:
     environment:
       NODE_ENV: development
       EXPO_USE_DEV_SERVER: 1
-    entrypoint: "npm run start"
+    entrypoint: "expo start"
