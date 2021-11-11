@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Text, TextInput, StyleSheet, View } from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
+import { Picker } from '@react-native-picker/picker';
 import Rotors from './components/Rotors';
 import { backgrounds } from './utils/Background';
 import { alphabet } from './utils/Alphabet';
@@ -113,62 +113,62 @@ export default class App extends React.Component {
     )
 
     const RotorA = (
-      <RNPickerSelect
+      <Picker
           placeholder={placeholderRotor}
           items={rotorNumbers}
           onValueChange={ (value) => this.handleRotor1(value) }
           value={this.state.rotor1}
-          useNativeAndroidPickerStyle={false}
+          // useNativeAndroidPickerStyle={false}
         />
     )
 
     const RotorB = (
-      <RNPickerSelect
+      <Picker
           placeholder={placeholderRotor}
           items={rotorNumbers}
           onValueChange={ (value) => this.handleRotor2(value) }
           value={this.state.rotor2}
-          useNativeAndroidPickerStyle={false}
+          // useNativeAndroidPickerStyle={false}
         />
     )
 
     const RotorC = (
-      <RNPickerSelect
+      <Picker
           placeholder={placeholderRotor}
           items={rotorNumbers}
           onValueChange={ (value) => this.handleRotor3(value) }
           value={this.state.rotor3}
-          useNativeAndroidPickerStyle={false}
+          // useNativeAndroidPickerStyle={false}
         />
     )
 
     const Rotor1 = (
-      <RNPickerSelect
+      <Picker
           placeholder={placeholderRotor}
           items={alphabet}
           onValueChange={ (value) => this.handleStart1(value) }
           value={this.state.start1}
-          useNativeAndroidPickerStyle={false}
+          // useNativeAndroidPickerStyle={false}
         />
     )
 
     const Rotor2 = (
-      <RNPickerSelect
+      <Picker
           placeholder={placeholderRotor}
           items={alphabet}
           onValueChange={ (value) => this.handleStart2(value) }
           value={this.state.start2}
-          useNativeAndroidPickerStyle={false}
+          // useNativeAndroidPickerStyle={false}
         />
     )
 
     const Rotor3 = (
-      <RNPickerSelect
+      <Picker
           placeholder={placeholderRotor}
           items={alphabet}
           onValueChange={ (value) => this.handleStart3(value) }
           value={this.state.start3}
-          useNativeAndroidPickerStyle={false}
+          // useNativeAndroidPickerStyle={false}
         />
     )
 
