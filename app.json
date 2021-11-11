@@ -2,11 +2,11 @@
   "expo": {
     "name": "Enigma Machine",
     "slug": "enigma-machine",
+    "sdkVersion": "43.0.0",
     "privacy": "public",
-    "sdkVersion": "32.0.0",
     "platforms": [
+      "android",
       "ios",
-      "android"
     ],
     "version": "1.0.1",
     "orientation": "portrait",
@@ -24,7 +24,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-       "bundleIdentifier": "uk.co.aishamclean.enigmamachine"
+      "bundleIdentifier": "uk.co.aishamclean.enigmamachine"
     },
     "android": {
       "package": "uk.co.aishamclean.enigmamachine"
