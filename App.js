@@ -24,7 +24,7 @@ export default class App extends React.Component {
   };
 
   componentWillMount(){
-    const testApiCall = `http://aishamclean.co.uk/enigma/encipher/1/2/3/A/M/C/hello`
+    const testApiCall = `https://aishamclean.co.uk/enigma/encipher/?rotor1=4&rotor2=5&rotor3=1&position1=A&position2=M&position3=C&plaintext=HELLO`
     fetch(testApiCall)
     .then(response => response.json())
     .then(data => {
@@ -40,12 +40,12 @@ export default class App extends React.Component {
   }
 
   getCiphertext() {
-      const api = `http://aishamclean.co.uk/enigma/encipher/${this.state.rotor1}/${this.state.rotor2}/${this.state.rotor3}/${this.state.start1}/${this.state.start2}/${this.state.start3}/${this.state.plaintext.replace(/[^A-Z]/g, '')}`
+      const api = `https://aishamclean.co.uk/enigma/encipher/?rotor1=${this.state.rotor1}&rotor2=${this.state.rotor2}&rotor3=${this.state.rotor3}&position1=${this.state.start1}&position2=${this.state.start2}&position3=${this.state.start3}&plaintext=${this.state.plaintext.replace(/[^a-zA-Z]/g, '')}`
       fetch(api)
       .then(response => response.json())
       .then( data => this.handleEncipher(data) )
       .catch( err => {
-        console.log(api + ' request returned you an error there')
+        console.log(api + ' request returned you an error there:' + err)
       });
   }
 
