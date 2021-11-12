@@ -20,12 +20,10 @@ export default class App extends React.Component {
       message: 'PLAINTEXT',
       plaintext: null,
       ciphertext: null,
-      backgroundKey: 'Default',
-      rotorNums: rotorNumbers,
-      rotorLetters: alphabet
+      backgroundKey: 'Default'
   };
 
-  componentWillMount(){
+  componentDidMount(){
     const testApiCall = `https://aishamclean.co.uk/enigma/encipher/?rotor1=4&rotor2=5&rotor3=1&position1=A&position2=M&position3=C&plaintext=HELLO`
     fetch(testApiCall)
     .then(response => response.json())
@@ -114,55 +112,58 @@ export default class App extends React.Component {
     )
 
     const RotorA = (
+      <View style={styles.rotor}>
       <Picker
-          selectedValue={placeholderRotor}
+          selectedValue={this.state.rotor1}
           onValueChange={ (value) => this.handleRotor1(value) }
-          value={this.state.rotor1}
           mode='dropdown' // Android only
         >
         <Picker.Item label='I' value='1' />
-        <Picker.Item label='II' label='2' />
-        <Picker.Item label='III' label='3' />
-        <Picker.Item label='IV' label='4' />
-        <Picker.Item label='V' label='5' />
+        <Picker.Item label='II' value='2' />
+        <Picker.Item label='III' value='3' />
+        <Picker.Item label='IV' value='4' />
+        <Picker.Item label='V' value='5' />
       </Picker>
+      </View>
     )
 
     const RotorB = (
+      <View style={styles.rotor}>
       <Picker
-          selectedValue={placeholderRotor}
+          selectedValue={this.state.rotor2}
           onValueChange={ (value) => this.handleRotor2(value) }
-          value={this.state.rotor2}
           mode='dropdown' // Android only
         >
         <Picker.Item label='I' value='1' />
-        <Picker.Item label='II' label='2' />
-        <Picker.Item label='III' label='3' />
-        <Picker.Item label='IV' label='4' />
-        <Picker.Item label='V' label='5' />
+        <Picker.Item label='II' value='2' />
+        <Picker.Item label='III' value='3' />
+        <Picker.Item label='IV' value='4' />
+        <Picker.Item label='V' value='5' />
       </Picker>
+      </View>
     )
 
     const RotorC = (
+      <View style={styles.rotor}>
       <Picker
-          selectedValue={placeholderRotor}
+          selectedValue={this.state.rotor3}
           onValueChange={ (value) => this.handleRotor3(value) }
-          value={this.state.rotor3}
           mode='dropdown' // Android only
         >
         <Picker.Item label='I' value='1' />
-        <Picker.Item label='II' label='2' />
-        <Picker.Item label='III' label='3' />
-        <Picker.Item label='IV' label='4' />
-        <Picker.Item label='V' label='5' />
+        <Picker.Item label='II' value='2' />
+        <Picker.Item label='III' value='3' />
+        <Picker.Item label='IV' value='4' />
+        <Picker.Item label='V' value='5' />
       </Picker>
+      </View>
     )
 
     const Rotor1 = (
+      <View style={styles.rotor}>
       <Picker
-          selectedValue={placeholderRotor}
+          selectedValue={this.state.start1}
           onValueChange={ (value) => this.handleStart1(value) }
-          value={this.state.start1}
           mode='dropdown' // Android only
         >
         <Picker.Item label='A' value='A' />
@@ -171,14 +172,35 @@ export default class App extends React.Component {
         <Picker.Item label='D' value='D' />
         <Picker.Item label='E' value='E' />
         <Picker.Item label='F' value='F' />
+        <Picker.Item label='G' value='G' />
+        <Picker.Item label='H' value='H' />
+        <Picker.Item label='I' value='I' />
+        <Picker.Item label='J' value='J' />
+        <Picker.Item label='K' value='K' />
+        <Picker.Item label='L' value='L' />
+        <Picker.Item label='M' value='M' />
+        <Picker.Item label='N' value='N' />
+        <Picker.Item label='O' value='O' />
+        <Picker.Item label='P' value='P' />
+        <Picker.Item label='Q' value='Q' />
+        <Picker.Item label='R' value='R' />
+        <Picker.Item label='S' value='S' />
+        <Picker.Item label='T' value='T' />
+        <Picker.Item label='U' value='U' />
+        <Picker.Item label='V' value='V' />
+        <Picker.Item label='W' value='W' />
+        <Picker.Item label='X' value='X' />
+        <Picker.Item label='Y' value='Y' />
+        <Picker.Item label='Z' value='Z' />
       </Picker>
+      </View>
     )
 
     const Rotor2 = (
+      <View style={styles.rotor}>
       <Picker
-          selectedValue={placeholderRotor}
+          selectedValue={this.state.start2}
           onValueChange={ (value) => this.handleStart2(value) }
-          value={this.state.start2}
           mode='dropdown' // Android only
         >
         <Picker.Item label='A' value='A' />
@@ -187,14 +209,35 @@ export default class App extends React.Component {
         <Picker.Item label='D' value='D' />
         <Picker.Item label='E' value='E' />
         <Picker.Item label='F' value='F' />
+        <Picker.Item label='G' value='G' />
+        <Picker.Item label='H' value='H' />
+        <Picker.Item label='I' value='I' />
+        <Picker.Item label='J' value='J' />
+        <Picker.Item label='K' value='K' />
+        <Picker.Item label='L' value='L' />
+        <Picker.Item label='M' value='M' />
+        <Picker.Item label='N' value='N' />
+        <Picker.Item label='O' value='O' />
+        <Picker.Item label='P' value='P' />
+        <Picker.Item label='Q' value='Q' />
+        <Picker.Item label='R' value='R' />
+        <Picker.Item label='S' value='S' />
+        <Picker.Item label='T' value='T' />
+        <Picker.Item label='U' value='U' />
+        <Picker.Item label='V' value='V' />
+        <Picker.Item label='W' value='W' />
+        <Picker.Item label='X' value='X' />
+        <Picker.Item label='Y' value='Y' />
+        <Picker.Item label='Z' value='Z' />
       </Picker>
+      </View>
     )
 
     const Rotor3 = (
+      <View style={styles.rotor}>
       <Picker
-          selectedValue={placeholderRotor}
+          selectedValue={this.state.start3}
           onValueChange={ (value) => this.handleStart3(value) }
-          value={this.state.start3}
           mode='dropdown' // Android only
         >
         <Picker.Item label='A' value='A' />
@@ -203,7 +246,28 @@ export default class App extends React.Component {
         <Picker.Item label='D' value='D' />
         <Picker.Item label='E' value='E' />
         <Picker.Item label='F' value='F' />
+        <Picker.Item label='G' value='G' />
+        <Picker.Item label='H' value='H' />
+        <Picker.Item label='I' value='I' />
+        <Picker.Item label='J' value='J' />
+        <Picker.Item label='K' value='K' />
+        <Picker.Item label='L' value='L' />
+        <Picker.Item label='M' value='M' />
+        <Picker.Item label='N' value='N' />
+        <Picker.Item label='O' value='O' />
+        <Picker.Item label='P' value='P' />
+        <Picker.Item label='Q' value='Q' />
+        <Picker.Item label='R' value='R' />
+        <Picker.Item label='S' value='S' />
+        <Picker.Item label='T' value='T' />
+        <Picker.Item label='U' value='U' />
+        <Picker.Item label='V' value='V' />
+        <Picker.Item label='W' value='W' />
+        <Picker.Item label='X' value='X' />
+        <Picker.Item label='Y' value='Y' />
+        <Picker.Item label='Z' value='Z' />
       </Picker>
+      </View>
     )
 
     const showButton = this.state.buttonVisible
@@ -278,6 +342,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignSelf: 'center',
+  },
+  rotor: {
+      flex: 1
   },
   inputContainer: {
     flex: 3,
