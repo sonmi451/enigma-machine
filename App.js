@@ -304,14 +304,17 @@ export default class App extends React.Component {
 
           <Rotors style={styles.rotorContainer} rotor1={Rotor1} rotor2={Rotor2} rotor3={Rotor3}/>
 
+        </View>
+
+        <View>
           <TextInput
             style={styles.plaintext}
             placeholderTextColor={'black'}
             autoCapitalize='characters'
             onChangeText={ (plaintext) => this.handlePlaintextInput(plaintext) }
-            selectedValue={this.state.message}
+            defaultValue={this.state.message}
+            placeholder="Type your message here!"
             maxLength = {50} />
-
         </View>
 
         { showButton ? encipherButton : null }
@@ -365,7 +368,8 @@ const styles = StyleSheet.create({
   plaintext: {
     color: 'black',
     fontSize: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    height: 60
   },
   ciphertext: {
     color: 'black',
