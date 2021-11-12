@@ -16,7 +16,7 @@ ENV PATH /enigma_machine/node_modules/.bin:$PATH
 COPY ./src /enigma_machine/src
 COPY ./assets /enigma_machine/assets
 COPY ./app.json /enigma_machine/app.json
-COPY ./App.js /enigma_machine/./App.js
+COPY ./App.js /enigma_machine/App.js
 
 # Set working directory
 WORKDIR /enigma_machine/
