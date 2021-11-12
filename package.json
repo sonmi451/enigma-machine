@@ -12,9 +12,9 @@
     "preset": "react-native"
   },
   "dependencies": {
-    "@react-native-picker/picker": "^2.2.0",
+    "@react-native-picker/picker": "2.1.0",
     "expo": "^43.0.3",
-    "expo-cli": "",
+    "expo-cli": "^4.13.0",
     "react-native": "^0.64.3"
   },
   "private": true
