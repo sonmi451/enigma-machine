@@ -21,6 +21,8 @@ export default class App extends React.Component {
       plaintext: null,
       ciphertext: null,
       backgroundKey: 'Default',
+      rotorNums: rotorNumbers,
+      rotorLetters: alphabet
   };
 
   componentWillMount(){
@@ -102,7 +104,6 @@ export default class App extends React.Component {
   }
 
   render() {
-
     const encipherButton = (
       <Button
           onPress={ this.getCiphertext.bind(this) }
@@ -114,62 +115,95 @@ export default class App extends React.Component {
 
     const RotorA = (
       <Picker
-          placeholder={placeholderRotor}
-          items={rotorNumbers}
+          selectedValue={placeholderRotor}
           onValueChange={ (value) => this.handleRotor1(value) }
           value={this.state.rotor1}
-          // useNativeAndroidPickerStyle={false}
-        />
+          mode='dropdown' // Android only
+        >
+        <Picker.Item label='I' value='1' />
+        <Picker.Item label='II' label='2' />
+        <Picker.Item label='III' label='3' />
+        <Picker.Item label='IV' label='4' />
+        <Picker.Item label='V' label='5' />
+      </Picker>
     )
 
     const RotorB = (
       <Picker
-          placeholder={placeholderRotor}
-          items={rotorNumbers}
+          selectedValue={placeholderRotor}
           onValueChange={ (value) => this.handleRotor2(value) }
           value={this.state.rotor2}
-          useNativeAndroidPickerStyle={false}
-        />
+          mode='dropdown' // Android only
+        >
+        <Picker.Item label='I' value='1' />
+        <Picker.Item label='II' label='2' />
+        <Picker.Item label='III' label='3' />
+        <Picker.Item label='IV' label='4' />
+        <Picker.Item label='V' label='5' />
+      </Picker>
     )
 
     const RotorC = (
       <Picker
-          placeholder={placeholderRotor}
-          items={rotorNumbers}
+          selectedValue={placeholderRotor}
           onValueChange={ (value) => this.handleRotor3(value) }
           value={this.state.rotor3}
-          useNativeAndroidPickerStyle={false}
-        />
+          mode='dropdown' // Android only
+        >
+        <Picker.Item label='I' value='1' />
+        <Picker.Item label='II' label='2' />
+        <Picker.Item label='III' label='3' />
+        <Picker.Item label='IV' label='4' />
+        <Picker.Item label='V' label='5' />
+      </Picker>
     )
 
     const Rotor1 = (
       <Picker
-          placeholder={placeholderRotor}
-          items={alphabet}
+          selectedValue={placeholderRotor}
           onValueChange={ (value) => this.handleStart1(value) }
           value={this.state.start1}
-          useNativeAndroidPickerStyle={false}
-        />
+          mode='dropdown' // Android only
+        >
+        <Picker.Item label='A' value='A' />
+        <Picker.Item label='B' value='B' />
+        <Picker.Item label='C' value='C' />
+        <Picker.Item label='D' value='D' />
+        <Picker.Item label='E' value='E' />
+        <Picker.Item label='F' value='F' />
+      </Picker>
     )
 
     const Rotor2 = (
       <Picker
-          placeholder={placeholderRotor}
-          items={alphabet}
+          selectedValue={placeholderRotor}
           onValueChange={ (value) => this.handleStart2(value) }
           value={this.state.start2}
-          useNativeAndroidPickerStyle={false}
-        />
+          mode='dropdown' // Android only
+        >
+        <Picker.Item label='A' value='A' />
+        <Picker.Item label='B' value='B' />
+        <Picker.Item label='C' value='C' />
+        <Picker.Item label='D' value='D' />
+        <Picker.Item label='E' value='E' />
+        <Picker.Item label='F' value='F' />
+      </Picker>
     )
 
     const Rotor3 = (
       <Picker
-          placeholder={placeholderRotor}
-          items={alphabet}
+          selectedValue={placeholderRotor}
           onValueChange={ (value) => this.handleStart3(value) }
           value={this.state.start3}
-          useNativeAndroidPickerStyle={false}
-        />
+          mode='dropdown' // Android only
+        >
+        <Picker.Item label='A' value='A' />
+        <Picker.Item label='B' value='B' />
+        <Picker.Item label='C' value='C' />
+        <Picker.Item label='D' value='D' />
+        <Picker.Item label='E' value='E' />
+        <Picker.Item label='F' value='F' />
+      </Picker>
     )
 
     const showButton = this.state.buttonVisible
@@ -196,7 +230,7 @@ export default class App extends React.Component {
 
           <Text style={[styles.titletext,
               {
-                color: "#" + this.state.rotor1 + this.state.rotor2 + this.state.rotor3
+                color: '#' + this.state.rotor1 + this.state.rotor2 + this.state.rotor3
               }
             ]}>
             Select your rotor start positions and then enter your message.
@@ -211,7 +245,7 @@ export default class App extends React.Component {
             placeholderTextColor={'black'}
             autoCapitalize='characters'
             onChangeText={ (plaintext) => this.handlePlaintextInput(plaintext) }
-            placeholder={this.state.message}
+            selectedValue={this.state.message}
             maxLength = {50} />
 
         </View>
