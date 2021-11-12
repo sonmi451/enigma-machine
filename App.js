@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Text, TextInput, StyleSheet, View } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import Rotors from './components/Rotors';
-import { backgrounds } from './utils/Background';
-import { alphabet } from './utils/Alphabet';
-import { rotorNumbers } from './utils/Numbers';
+import Rotors from './src/components/Rotors';
+import { backgrounds } from './src/utils/Background';
+import { alphabet } from './src/utils/Alphabet';
+import { rotorNumbers } from './src/utils/Numbers';
 
 export default class App extends React.Component {
   state = {
@@ -128,7 +128,7 @@ export default class App extends React.Component {
           items={rotorNumbers}
           onValueChange={ (value) => this.handleRotor2(value) }
           value={this.state.rotor2}
-          // useNativeAndroidPickerStyle={false}
+          useNativeAndroidPickerStyle={false}
         />
     )
 
@@ -138,7 +138,7 @@ export default class App extends React.Component {
           items={rotorNumbers}
           onValueChange={ (value) => this.handleRotor3(value) }
           value={this.state.rotor3}
-          // useNativeAndroidPickerStyle={false}
+          useNativeAndroidPickerStyle={false}
         />
     )
 
@@ -148,7 +148,7 @@ export default class App extends React.Component {
           items={alphabet}
           onValueChange={ (value) => this.handleStart1(value) }
           value={this.state.start1}
-          // useNativeAndroidPickerStyle={false}
+          useNativeAndroidPickerStyle={false}
         />
     )
 
@@ -158,7 +158,7 @@ export default class App extends React.Component {
           items={alphabet}
           onValueChange={ (value) => this.handleStart2(value) }
           value={this.state.start2}
-          // useNativeAndroidPickerStyle={false}
+          useNativeAndroidPickerStyle={false}
         />
     )
 
@@ -168,7 +168,7 @@ export default class App extends React.Component {
           items={alphabet}
           onValueChange={ (value) => this.handleStart3(value) }
           value={this.state.start3}
-          // useNativeAndroidPickerStyle={false}
+          useNativeAndroidPickerStyle={false}
         />
     )
 
