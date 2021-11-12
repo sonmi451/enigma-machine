@@ -12,6 +12,7 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "@expo/ngrok": "^4.1.0",
     "@react-native-picker/picker": "2.1.0",
     "expo": "^43.0.3",
     "expo-cli": "^4.13.0",
